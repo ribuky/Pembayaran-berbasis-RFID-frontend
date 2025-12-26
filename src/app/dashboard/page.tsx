@@ -19,7 +19,7 @@ export default function DashboardPage() {
     const checkAuth = async () => {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/auth/me`,
+          `/api/auth/me`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
