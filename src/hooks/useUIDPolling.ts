@@ -16,7 +16,7 @@ export function useUIDPolling(enabled: boolean) {
       try {
         const token = localStorage.getItem("access_token");
 
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/last_uid`, {
+        const res = await fetch(`/api/last_uid`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -28,7 +28,7 @@ export function useUIDPolling(enabled: boolean) {
         if (data.uid && data.uid !== lastUID.current) {
           lastUID.current = data.uid;
 
-          await fetch(`${process.env.NEXT_PUBLIC_API_URL}/clear_uid`, {
+          await fetch(`/api/clear_uid`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
